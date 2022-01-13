@@ -13,6 +13,15 @@
 		6A1B163227906AFE004304EB /* News_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1B163127906AFE004304EB /* News_AppTests.swift */; };
 		6A1B163C27906AFE004304EB /* News_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1B163B27906AFE004304EB /* News_AppUITests.swift */; };
 		6A1B163E27906AFE004304EB /* News_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1B163D27906AFE004304EB /* News_AppUITestsLaunchTests.swift */; };
+		6A1B164E27906CF1004304EB /* NetworkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1B164D27906CF1004304EB /* NetworkingClient.swift */; };
+		6A1B165927906DB6004304EB /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1B165727906DB6004304EB /* PostTableViewCell.swift */; };
+		6A1B165A27906DB6004304EB /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A1B165827906DB6004304EB /* PostTableViewCell.xib */; };
+		6A1B165C27906F0D004304EB /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1B165B27906F0D004304EB /* PostViewModel.swift */; };
+		6A1B165E27906F3B004304EB /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1B165D27906F3B004304EB /* PostService.swift */; };
+		6A1B166027906F92004304EB /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1B165F27906F92004304EB /* PostModel.swift */; };
+		6A1B166327906FAF004304EB /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1B166127906FAF004304EB /* PostViewController.swift */; };
+		6A1B166427906FAF004304EB /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A1B166227906FAF004304EB /* PostViewController.xib */; };
+		6A1B16672790720B004304EB /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1B16662790720B004304EB /* EndPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +52,15 @@
 		6A1B163727906AFE004304EB /* News AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "News AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A1B163B27906AFE004304EB /* News_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News_AppUITests.swift; sourceTree = "<group>"; };
 		6A1B163D27906AFE004304EB /* News_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6A1B164D27906CF1004304EB /* NetworkingClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingClient.swift; sourceTree = "<group>"; };
+		6A1B165727906DB6004304EB /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		6A1B165827906DB6004304EB /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		6A1B165B27906F0D004304EB /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		6A1B165D27906F3B004304EB /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
+		6A1B165F27906F92004304EB /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		6A1B166127906FAF004304EB /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		6A1B166227906FAF004304EB /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
+		6A1B16662790720B004304EB /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +111,12 @@
 		6A1B161927906AFC004304EB /* News App */ = {
 			isa = PBXGroup;
 			children = (
+				6A1B1665279071F9004304EB /* Entities */,
+				6A1B164C27906CCE004304EB /* Service */,
+				6A1B164B27906CC2004304EB /* Page */,
+				6A1B164A27906CBC004304EB /* Model */,
 				6A1B161A27906AFC004304EB /* AppDelegate.swift */,
+				6A1B164D27906CF1004304EB /* NetworkingClient.swift */,
 				6A1B162327906AFE004304EB /* Assets.xcassets */,
 				6A1B162527906AFE004304EB /* LaunchScreen.storyboard */,
 				6A1B162827906AFE004304EB /* Info.plist */,
@@ -116,6 +139,74 @@
 				6A1B163D27906AFE004304EB /* News_AppUITestsLaunchTests.swift */,
 			);
 			path = "News AppUITests";
+			sourceTree = "<group>";
+		};
+		6A1B164A27906CBC004304EB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6A1B165F27906F92004304EB /* PostModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6A1B164B27906CC2004304EB /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				6A1B164F27906D23004304EB /* Home */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		6A1B164C27906CCE004304EB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				6A1B165D27906F3B004304EB /* PostService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		6A1B164F27906D23004304EB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6A1B165227906D5C004304EB /* ViewModel */,
+				6A1B165127906D55004304EB /* Cell */,
+				6A1B165027906D31004304EB /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		6A1B165027906D31004304EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6A1B166127906FAF004304EB /* PostViewController.swift */,
+				6A1B166227906FAF004304EB /* PostViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6A1B165127906D55004304EB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6A1B165727906DB6004304EB /* PostTableViewCell.swift */,
+				6A1B165827906DB6004304EB /* PostTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		6A1B165227906D5C004304EB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6A1B165B27906F0D004304EB /* PostViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6A1B1665279071F9004304EB /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				6A1B16662790720B004304EB /* EndPoint.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +315,8 @@
 			files = (
 				6A1B162727906AFE004304EB /* LaunchScreen.storyboard in Resources */,
 				6A1B162427906AFE004304EB /* Assets.xcassets in Resources */,
+				6A1B165A27906DB6004304EB /* PostTableViewCell.xib in Resources */,
+				6A1B166427906FAF004304EB /* PostViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +341,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A1B166327906FAF004304EB /* PostViewController.swift in Sources */,
+				6A1B165C27906F0D004304EB /* PostViewModel.swift in Sources */,
+				6A1B16672790720B004304EB /* EndPoint.swift in Sources */,
+				6A1B165E27906F3B004304EB /* PostService.swift in Sources */,
+				6A1B166027906F92004304EB /* PostModel.swift in Sources */,
+				6A1B164E27906CF1004304EB /* NetworkingClient.swift in Sources */,
 				6A1B161B27906AFC004304EB /* AppDelegate.swift in Sources */,
+				6A1B165927906DB6004304EB /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
