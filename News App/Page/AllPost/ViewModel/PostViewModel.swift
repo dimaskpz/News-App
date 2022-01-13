@@ -74,7 +74,7 @@ class PostViewModel {
     var albums: Albums = []
 
     func getAlbumData(completion: @escaping ((_ statusCode: Int?, ErrorMapping?) -> Void) ) {
-        let param = "/comments"
+        let param = "/albums"
         albumService.getDataFromServer(parameters: param, completion: { [weak self] data, error in
             if let _ = error {
                 completion(nil, error)
@@ -90,7 +90,7 @@ class PostViewModel {
     var photos: [PhotoElement] = []
 
     func getPhotoData(completion: @escaping ((_ statusCode: Int?, ErrorMapping?) -> Void) ) {
-        let param = "/comments"
+        let param = "/photos"
         photoService.getDataFromServer(parameters: param, completion: { [weak self] data, error in
             if let _ = error {
                 completion(nil, error)
