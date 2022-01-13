@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - WelcomeElement
-struct Post: Codable {
+struct PostElement: Codable {
     let userID, id: Int
     let title, body: String
 
@@ -18,4 +18,4 @@ struct Post: Codable {
     }
 }
 
-typealias Posts = [Post]
+typealias Posts = [PostElement]

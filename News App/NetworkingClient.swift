@@ -13,12 +13,12 @@ class NetworkingClient {
     typealias WebServiceResponse = (Data?, ErrorMapping?) -> Void
 
     func execute(_ url: URL, completion: @escaping WebServiceResponse) {
-        let headers: HTTPHeaders = [
-            "Content-Type": "application/json",
-            "X-Api-Key": pokemonServerKey
-        ]
+//        let headers: HTTPHeaders = [
+//            "Content-Type": "application/json",
+//            "X-Api-Key": pokemonServerKey
+//        ]
         if Connectivity.isConnectedToInternet {
-            AF.request(url, method: .get , headers: headers).validate().responseJSON { response in
+            AF.request(url, method: .get).validate().responseJSON { response in
                 if let error = response.error {
                     let errorData = ErrorMapping(code: response.response?.statusCode ?? 0, message: error.localizedDescription)
                     completion(nil, errorData)
