@@ -54,6 +54,54 @@ class PostViewModel {
         postDisplay = postDisplayLocal
     }
 
+    var commentService = CommentService.shared
+    var comments: [CommentElement] = []
+
+    func getCommentData(completion: @escaping ((_ statusCode: Int?, ErrorMapping?) -> Void) ) {
+        let param = "/comments"
+        commentService.getDataFromServer(parameters: param, completion: { [weak self] data, error in
+            if let _ = error {
+                completion(nil, error)
+                return
+            }
+            guard let self = self, let data = data else { return }
+            self.comments = data
+            completion(200, nil)
+        })
+    }
+
+    var albumService = AlbumService.shared
+    var albums: Albums = []
+
+    func getAlbumData(completion: @escaping ((_ statusCode: Int?, ErrorMapping?) -> Void) ) {
+        let param = "/comments"
+        albumService.getDataFromServer(parameters: param, completion: { [weak self] data, error in
+            if let _ = error {
+                completion(nil, error)
+                return
+            }
+            guard let self = self, let data = data else { return }
+            self.albums = data
+            completion(200, nil)
+        })
+    }
+
+    var photoService = PhotoService.shared
+    var photos: [PhotoElement] = []
+
+    func getPhotoData(completion: @escaping ((_ statusCode: Int?, ErrorMapping?) -> Void) ) {
+        let param = "/comments"
+        photoService.getDataFromServer(parameters: param, completion: { [weak self] data, error in
+            if let _ = error {
+                completion(nil, error)
+                return
+            }
+            guard let self = self, let data = data else { return }
+            self.photos = data
+            completion(200, nil)
+        })
+    }
+
 }
 
 struct PostDisplay {

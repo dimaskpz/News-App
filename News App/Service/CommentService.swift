@@ -13,7 +13,7 @@ class CommentService {
 
     var networkingClient = NetworkingClient()
 
-    func getUsersDataFromServer(parameters: String, completion: @escaping (Comments?, ErrorMapping?) -> Void) {
+    func getDataFromServer(parameters: String, completion: @escaping (Comments?, ErrorMapping?) -> Void) {
         guard let url = URL(string: Endpoint().base + parameters) else { return }
         print(url.absoluteString)
         networkingClient.execute(url) { data, error in

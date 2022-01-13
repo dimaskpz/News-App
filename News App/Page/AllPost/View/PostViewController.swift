@@ -17,7 +17,7 @@ final class PostViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "Social Media"
         postTableView.delegate = self
         postTableView.dataSource = self
         postTableView.register(UINib(nibName: "PostTableViewCell", bundle: nil),
@@ -36,7 +36,7 @@ final class PostViewController: UIViewController {
             }
         })
 
-        vm.getPosts(completion: { [weak self] statusCode, errorMap in
+        vm.getUserData(completion: { [weak self] statusCode, errorMap in
             guard let self = self else { return }
             if statusCode == 200 {
                 self.isUserDone = true
@@ -52,7 +52,12 @@ final class PostViewController: UIViewController {
 }
 
 extension PostViewController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let cardVC = PokemonDetailViewController()
+//        cardVC.setCard(data: pokemon)
+//        self.navigationItem.backButtonTitle = pokemon.name
+//        self.navigationController?.pushViewController(cardVC, animated: true)
+    }
 }
 
 

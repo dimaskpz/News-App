@@ -12,7 +12,7 @@ class AlbumService {
 
     var networkingClient = NetworkingClient()
 
-    func getUsersDataFromServer(parameters: String, completion: @escaping (Albums?, ErrorMapping?) -> Void) {
+    func getDataFromServer(parameters: String, completion: @escaping (Albums?, ErrorMapping?) -> Void) {
         guard let url = URL(string: Endpoint().base + parameters) else { return }
         print(url.absoluteString)
         networkingClient.execute(url) { data, error in

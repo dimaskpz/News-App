@@ -14,7 +14,7 @@ class PhotoService {
 
     var networkingClient = NetworkingClient()
 
-    func getUsersDataFromServer(parameters: String, completion: @escaping (Photos?, ErrorMapping?) -> Void) {
+    func getDataFromServer(parameters: String, completion: @escaping (Photos?, ErrorMapping?) -> Void) {
         guard let url = URL(string: Endpoint().base + parameters) else { return }
         print(url.absoluteString)
         networkingClient.execute(url) { data, error in
