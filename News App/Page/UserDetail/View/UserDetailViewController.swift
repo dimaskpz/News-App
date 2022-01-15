@@ -55,7 +55,7 @@ extension UserDetailViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderAlbumCollectionReusableView", for: indexPath) as? HeaderAlbumCollectionReusableView else { return UICollectionReusableView() }
-        sectionHeader.titleLabel.text = userDetailVM.albums[indexPath.row].title
+        sectionHeader.titleLabel.text = userDetailVM.albums[indexPath.section].title
         return sectionHeader
     }
 }
@@ -66,6 +66,8 @@ extension UserDetailViewController: UICollectionViewDelegate {
         let album = userDetailVM.albums[indexPath.section]
         let photos: [PhotoElement] = userDetailVM.photos.filter({ $0.albumID == album.id })
         photoVC.photoDetailVM.photos = photos
+        photoVC.photoDetailVM.selectedIndex = indexPath.row
+        self.navigationItem.backButtonTitle = album.title
         self.navigationController?.pushViewController(photoVC, animated: true)
     }
 }
