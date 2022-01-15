@@ -10,7 +10,7 @@ import UIKit
 final class PostViewController: UIViewController {
     @IBOutlet private var postTableView: UITableView!
 
-    var vm = PostViewModel()
+    var postVM = PostViewModel()
 
     var isUserDone = false
     var isPostDone = false
@@ -23,12 +23,12 @@ final class PostViewController: UIViewController {
         postTableView.register(UINib(nibName: "PostTableViewCell", bundle: nil),
                                forCellReuseIdentifier: "PostTableViewCell")
 
-        vm.getPosts(completion: { [weak self] statusCode, errorMap in
+        postVM.getPosts(completion: { [weak self] statusCode, errorMap in
             guard let self = self else { return }
             if statusCode == 200 {
                 self.isPostDone = true
                 if self.isUserDone {
-                    self.vm.getSetupPostView()
+                    self.postVM.getSetupPostView()
                     self.postTableView.reloadData()
                 }
             } else {
@@ -36,12 +36,12 @@ final class PostViewController: UIViewController {
             }
         })
 
-        vm.getUserData(completion: { [weak self] statusCode, errorMap in
+        postVM.getUserData(completion: { [weak self] statusCode, errorMap in
             guard let self = self else { return }
             if statusCode == 200 {
                 self.isUserDone = true
                 if self.isPostDone {
-                    self.vm.getSetupPostView()
+                    self.postVM.getSetupPostView()
                     self.postTableView.reloadData()
                 }
             } else {
@@ -49,7 +49,7 @@ final class PostViewController: UIViewController {
             }
         })
 
-        vm.getCommentData(completion: { [weak self] statusCode, errorMap in
+        postVM.getCommentData(completion: { [weak self] statusCode, errorMap in
             guard let self = self else { return }
             if statusCode == 200 {
                 // do nothing
@@ -58,7 +58,7 @@ final class PostViewController: UIViewController {
             }
         })
 
-        vm.getAlbumData(completion: { [weak self] statusCode, errorMap in
+        postVM.getAlbumData(completion: { [weak self] statusCode, errorMap in
             guard let self = self else { return }
             if statusCode == 200 {
                 // do nothing
@@ -67,7 +67,7 @@ final class PostViewController: UIViewController {
             }
         })
 
-        vm.getPhotoData(completion: { [weak self] statusCode, errorMap in
+        postVM.getPhotoData(completion: { [weak self] statusCode, errorMap in
             guard let self = self else { return }
             if statusCode == 200 {
                 // do nothing
@@ -80,13 +80,13 @@ final class PostViewController: UIViewController {
 
 extension PostViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedPost = self.vm.postDisplay[indexPath.row]
+        let selectedPost = self.postVM.postDisplay[indexPath.row]
         let postDetailVC = PostDetailViewController()
-        postDetailVC.vm.postDisplay = selectedPost
-        postDetailVC.vm.comments = self.vm.getCommentSelected(idPost: selectedPost.postId)
-        postDetailVC.vm.users = self.vm.users
-        postDetailVC.vm.photos = self.vm.photos
-        postDetailVC.vm.albums = self.vm.albums
+        postDetailVC.postDetailVM.postDisplay = selectedPost
+        postDetailVC.postDetailVM.comments = self.postVM.getCommentSelected(idPost: selectedPost.postId)
+        postDetailVC.postDetailVM.users = self.postVM.users
+        postDetailVC.postDetailVM.photos = self.postVM.photos
+        postDetailVC.postDetailVM.albums = self.postVM.albums
 
         self.navigationItem.backButtonTitle = "Post Detail"
         self.navigationController?.pushViewController(postDetailVC, animated: true)
@@ -95,13 +95,13 @@ extension PostViewController: UITableViewDelegate {
 
 extension PostViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vm.postDisplay.count
+        return postVM.postDisplay.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell")
                 as? PostTableViewCell else { return UITableViewCell() }
-        cell.setData(post: vm.postDisplay[indexPath.row])
+        cell.setData(post: postVM.postDisplay[indexPath.row])
         return cell
     }
 }

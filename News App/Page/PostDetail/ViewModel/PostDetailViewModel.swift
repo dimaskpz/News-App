@@ -30,8 +30,8 @@ class PostDetailViewModel {
         return photoData
     }
 
-    func getUserSelected(email: String) -> UserElement? {
-        return users.first(where: { $0.email == email })
+    func getUserSelected(userId: Int) -> UserElement? {
+        return users.first(where: { $0.id == userId })
     }
     
 }

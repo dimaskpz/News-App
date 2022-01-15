@@ -14,9 +14,14 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var companyLabel: UILabel!
 
+    var callbackUsername: (() -> Void)?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
+        let tap = UITapGestureRecognizer(target: self, action: #selector(usernameTapped))
+        usernameLabel.addGestureRecognizer(tap)
+        usernameLabel.isUserInteractionEnabled = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,5 +34,10 @@ class PostTableViewCell: UITableViewCell {
         usernameLabel.text = post.username
         companyLabel.text = " - \(post.companyName)"
     }
+
+    @objc private
+      func usernameTapped() {
+          callbackUsername?()
+      }
     
 }

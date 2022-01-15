@@ -16,6 +16,7 @@ class CommentTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         let tap = UITapGestureRecognizer(target: self, action: #selector(usernameTapped))
         usernameLabel.addGestureRecognizer(tap)
         usernameLabel.isUserInteractionEnabled = true

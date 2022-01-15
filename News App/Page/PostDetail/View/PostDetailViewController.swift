@@ -10,7 +10,7 @@ import UIKit
 class PostDetailViewController: UIViewController {
     @IBOutlet private var postDetailTableView: UITableView!
 
-    var vm = PostDetailViewModel()
+    var postDetailVM = PostDetailViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,36 +36,47 @@ extension PostDetailViewController: UITableViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return self.vm.comments.count
+            return self.postDetailVM.comments.count
         }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            guard let post = vm.postDisplay else { return UITableViewCell() }
+            guard let post = postDetailVM.postDisplay else { return UITableViewCell() }
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell")
                     as? PostTableViewCell else { return UITableViewCell() }
             cell.setData(post: post)
+            cell.callbackUsername = { [weak self] in
+                guard let self = self else { return }
+                if let userData = self.postDetailVM.getUserSelected(userId: post.userId) {
+                    let userVC = UserDetailViewController()
+                    let albumData = self.postDetailVM.getAlbumSelected(userId: userData.id)
+                    userVC.userDetailVM.albums = albumData
+                    userVC.userDetailVM.user = userData
+                    userVC.userDetailVM.photos = self.postDetailVM.getPhotoSelected(albumData: albumData)
+                    self.navigationController?.pushViewController(userVC, animated: true)
+                }
+            }
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CommentTableViewCell")
                     as? CommentTableViewCell else { return UITableViewCell() }
-            let comment = vm.comments[indexPath.row]
+            let comment = postDetailVM.comments[indexPath.row]
             let name = comment.name
             let body = comment.body
-            cell.commentLabel.text = "\(name) \(body)"
-            cell.callbackUsernameTapped = { [weak self] in
-                guard let self = self else { return }
-                if let userData = self.vm.getUserSelected(email: comment.email) {
-                    let userVC = UserDetailViewController()
-                    let albumData = self.vm.getAlbumSelected(userId: userData.id)
-                    userVC.vm.albums = albumData
-                    userVC.vm.user = userData
-                    userVC.vm.photos = self.vm.getPhotoSelected(albumData: albumData)
-                    self.navigationController?.pushViewController(userVC, animated: true)
-                }
-                
-            }
+            cell.usernameLabel.text = name
+            cell.commentLabel.text = body
+//            cell.callbackUsernameTapped = { [weak self] in
+//                guard let self = self else { return }
+//                if let userData = self.postDetailVM.getUserSelected(email: comment.email) {
+//                    let userVC = UserDetailViewController()
+//                    let albumData = self.postDetailVM.getAlbumSelected(userId: userData.id)
+//                    userVC.userDetailVM.albums = albumData
+//                    userVC.userDetailVM.user = userData
+//                    userVC.userDetailVM.photos = self.postDetailVM.getPhotoSelected(albumData: albumData)
+//                    self.navigationController?.pushViewController(userVC, animated: true)
+//                }
+//            }
             return cell
         }
     }

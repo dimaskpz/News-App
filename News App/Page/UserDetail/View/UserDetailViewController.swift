@@ -15,36 +15,34 @@ class UserDetailViewController: UIViewController {
     @IBOutlet weak var companyLabel: UILabel!
     @IBOutlet weak var albumCollectionView: UICollectionView!
 
-    var vm = UserDetailViewModel()
+    var userDetailVM = UserDetailViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        albumCollectionView.register(UINib(nibName: "AlbumCollectionViewCell", bundle: nil),
-                                     forCellWithReuseIdentifier: "AlbumCollectionViewCell")
-
-        albumCollectionView.register(UINib(nibName: "HeaderAlbumCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "HeaderAlbumCollectionReusableView")
         albumCollectionView.dataSource = self
         albumCollectionView.delegate = self
+        albumCollectionView.register(UINib(nibName: "AlbumCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AlbumCollectionViewCell")
+        albumCollectionView.register(UINib(nibName: "HeaderAlbumCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderAlbumCollectionReusableView")
     }
 }
 
 extension UserDetailViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return vm.albums.count
+        return userDetailVM.albums.count
     }
 
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let album = vm.albums[section]
-        let photos: [PhotoElement] = vm.photos.filter({ $0.albumID == album.id })
+        let album = userDetailVM.albums[section]
+        let photos: [PhotoElement] = userDetailVM.photos.filter({ $0.albumID == album.id })
         return photos.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCollectionViewCell", for: indexPath) as? AlbumCollectionViewCell else { return .init() }
-        let album = vm.albums[indexPath.section]
-        let photos: [PhotoElement] = vm.photos.filter({ $0.albumID == album.id })
+        let album = userDetailVM.albums[indexPath.section]
+        let photos: [PhotoElement] = userDetailVM.photos.filter({ $0.albumID == album.id })
         cell.setImage(string: photos[indexPath.row].thumbnailURL)
         cell.albumLabel.text = photos[indexPath.row].title
         return cell
@@ -56,9 +54,16 @@ extension UserDetailViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderAlbumCollectionReusableView", for: indexPath) as! HeaderAlbumCollectionReusableView
-        sectionHeader.titleLabel.text = vm.albums[indexPath.row].title
-        return sectionHeader
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderAlbumCollectionReusableView", for: indexPath) as? HeaderAlbumCollectionReusableView else { return UICollectionReusableView() }
+            sectionHeader.titleLabel.text = userDetailVM.albums[indexPath.row].title
+            return sectionHeader
+        case UICollectionView.elementKindSectionFooter:
+            return UICollectionReusableView()
+        default:
+            return UICollectionReusableView()
+        }
     }
 
 }
@@ -66,7 +71,7 @@ extension UserDetailViewController: UICollectionViewDataSource {
 extension UserDetailViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let photoVC = PhotoDetailViewController()
-        photoVC.vm.photos = self.vm.photos// seharusnya selected album
+        photoVC.vm.photos = self.userDetailVM.photos// seharusnya selected album
         self.navigationController?.pushViewController(photoVC, animated: true)
     }
 }
