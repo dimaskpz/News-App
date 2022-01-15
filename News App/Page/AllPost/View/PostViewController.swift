@@ -87,10 +87,11 @@ extension PostViewController: UITableViewDelegate {
         postDetailVC.vm.users = self.vm.users
         postDetailVC.vm.photos = self.vm.photos
         postDetailVC.vm.albums = self.vm.albums
+
+        self.navigationItem.backButtonTitle = "Post Detail"
         self.navigationController?.pushViewController(postDetailVC, animated: true)
     }
 }
-
 
 extension PostViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -102,6 +103,5 @@ extension PostViewController: UITableViewDataSource {
                 as? PostTableViewCell else { return UITableViewCell() }
         cell.setData(post: vm.postDisplay[indexPath.row])
         return cell
-
     }
 }
