@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class AlbumCollectionViewCell: UICollectionViewCell {
+final class AlbumCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var albumImage: UIImageView!
 

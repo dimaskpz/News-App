@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeaderAlbumCollectionReusableView: UICollectionReusableView {
+final class HeaderAlbumCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var titleLabel: UILabel!
 
     override func awakeFromNib() {

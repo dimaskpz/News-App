@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PhotoDetailViewController: UIViewController {
+final class PhotoDetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
 
     @IBOutlet weak var photoDetailCollectionView: UICollectionView!
@@ -64,7 +64,7 @@ extension PhotoDetailViewController: UICollectionViewDataSource {
         cell.photoImage.resetZoom()
         return cell
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let photo = photoDetailVM.photos[indexPath.row]
         titleLabel.text = "(\(indexPath.row + 1)/\(photoDetailVM.photos.count))\n\(photo.title)"

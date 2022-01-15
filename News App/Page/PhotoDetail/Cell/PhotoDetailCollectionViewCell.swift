@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class PhotoDetailCollectionViewCell: UICollectionViewCell {
+final class PhotoDetailCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var photoImage: UIImageView!
 
     override func awakeFromNib() {

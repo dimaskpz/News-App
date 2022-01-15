@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PostDetailViewController: UIViewController {
+final class PostDetailViewController: UIViewController {
     @IBOutlet private var postDetailTableView: UITableView!
 
     var postDetailVM = PostDetailViewModel()
@@ -20,6 +20,7 @@ class PostDetailViewController: UIViewController {
                                forCellReuseIdentifier: "PostTableViewCell")
         postDetailTableView.register(UINib(nibName: "CommentTableViewCell", bundle: nil),
                                forCellReuseIdentifier: "CommentTableViewCell")
+//        postDetailTableView.separatorStyle = .none
     }
 }
 
@@ -54,6 +55,7 @@ extension PostDetailViewController: UITableViewDataSource {
                     userVC.userDetailVM.albums = albumData
                     userVC.userDetailVM.user = userData
                     userVC.userDetailVM.photos = self.postDetailVM.getPhotoSelected(albumData: albumData)
+                    self.navigationItem.backButtonTitle = "User Detail"
                     self.navigationController?.pushViewController(userVC, animated: true)
                 }
             }
@@ -66,19 +68,24 @@ extension PostDetailViewController: UITableViewDataSource {
             let body = comment.body
             cell.usernameLabel.text = name
             cell.commentLabel.text = body
-//            cell.callbackUsernameTapped = { [weak self] in
-//                guard let self = self else { return }
-//                if let userData = self.postDetailVM.getUserSelected(email: comment.email) {
-//                    let userVC = UserDetailViewController()
-//                    let albumData = self.postDetailVM.getAlbumSelected(userId: userData.id)
-//                    userVC.userDetailVM.albums = albumData
-//                    userVC.userDetailVM.user = userData
-//                    userVC.userDetailVM.photos = self.postDetailVM.getPhotoSelected(albumData: albumData)
-//                    self.navigationController?.pushViewController(userVC, animated: true)
-//                }
-//            }
             return cell
         }
     }
+//
+//    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        if section == 1 {
+//            let view = UIView()
+//            view.backgroundColor = UIColor.gray
+//            return view
+//        } else { return nil }
+//   }
+//
+//   public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//       if section == 1 {
+//           return 1
+//       } else {
+//           return 0
+//       }
+//   }
 
 }

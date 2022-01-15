@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PostViewModel {
+final class PostViewModel {
 
     var posts: Posts = []
     var postService = PostService.shared

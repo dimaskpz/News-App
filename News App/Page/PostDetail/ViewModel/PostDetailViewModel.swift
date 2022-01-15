@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PostDetailViewModel {
+final class PostDetailViewModel {
 
     var postDisplay: PostDisplay?
     var comments: [CommentElement] = []

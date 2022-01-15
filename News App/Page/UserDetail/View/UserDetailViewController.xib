@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="5El-cz-g0h">
-                    <rect key="frame" x="0.0" y="196" width="414" height="700"/>
+                    <rect key="frame" x="0.0" y="186" width="414" height="710"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IFa-dl-9oO">
                         <size key="itemSize" width="128" height="128"/>
@@ -62,16 +62,29 @@
                         </label>
                     </subviews>
                 </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPq-X8-ADP">
+                    <rect key="frame" x="0.0" y="185" width="414" height="1"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="wx8-t4-w2X"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="5El-cz-g0h" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="9OV-hI-D7K"/>
+                <constraint firstItem="5El-cz-g0h" firstAttribute="top" secondItem="LPq-X8-ADP" secondAttribute="bottom" id="LpN-fo-aZ7"/>
                 <constraint firstItem="oyG-ed-O5L" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="R1l-oM-xRc"/>
                 <constraint firstAttribute="bottom" secondItem="5El-cz-g0h" secondAttribute="bottom" id="R46-4l-QSm"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="oyG-ed-O5L" secondAttribute="trailing" constant="20" id="SlM-Zy-QpB"/>
-                <constraint firstItem="5El-cz-g0h" firstAttribute="top" secondItem="oyG-ed-O5L" secondAttribute="bottom" constant="20" id="ahS-Ut-8DD"/>
+                <constraint firstItem="LPq-X8-ADP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="X5r-eT-Joq"/>
+                <constraint firstItem="5El-cz-g0h" firstAttribute="top" secondItem="oyG-ed-O5L" secondAttribute="bottom" constant="10" id="ahS-Ut-8DD"/>
                 <constraint firstItem="oyG-ed-O5L" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="cIV-4e-tOa"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LPq-X8-ADP" secondAttribute="trailing" id="r10-Ks-ZdL"/>
                 <constraint firstItem="5El-cz-g0h" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rpZ-Ua-tDk"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="86.383928571428569"/>
