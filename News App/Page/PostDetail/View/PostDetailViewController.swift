@@ -20,7 +20,7 @@ final class PostDetailViewController: UIViewController {
                                forCellReuseIdentifier: "PostTableViewCell")
         postDetailTableView.register(UINib(nibName: "CommentTableViewCell", bundle: nil),
                                forCellReuseIdentifier: "CommentTableViewCell")
-//        postDetailTableView.separatorStyle = .none
+        postDetailTableView.separatorStyle = .none
     }
 }
 
@@ -71,21 +71,4 @@ extension PostDetailViewController: UITableViewDataSource {
             return cell
         }
     }
-//
-//    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        if section == 1 {
-//            let view = UIView()
-//            view.backgroundColor = UIColor.gray
-//            return view
-//        } else { return nil }
-//   }
-//
-//   public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//       if section == 1 {
-//           return 1
-//       } else {
-//           return 0
-//       }
-//   }
-
 }

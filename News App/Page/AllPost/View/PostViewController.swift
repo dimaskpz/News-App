@@ -22,6 +22,7 @@ final class PostViewController: UIViewController {
         postTableView.dataSource = self
         postTableView.register(UINib(nibName: "PostTableViewCell", bundle: nil),
                                forCellReuseIdentifier: "PostTableViewCell")
+        postTableView.separatorStyle = .none
 
         postVM.getPosts(completion: { [weak self] statusCode, errorMap in
             guard let self = self else { return }
