@@ -23,6 +23,10 @@ extension UIImageView {
         sender.scale = 1
     }
 
+    func resetZoom() {
+        self.transform = .identity
+    }
+
     func setImage(string: String) {
         guard let url = URL(string: string) else { return }
         self.kf.setImage(with: url)

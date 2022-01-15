@@ -21,28 +21,31 @@ class PhotoDetailViewController: UIViewController {
         photoDetailCollectionView.register(UINib(nibName: "PhotoDetailCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PhotoDetailCollectionViewCell")
         photoDetailCollectionView.collectionViewLayout = getLayout()
         photoDetailCollectionView.isPagingEnabled = true
-//        photoDetailCollectionView.scrollToItem(at: IndexPath(item: photoDetailVM.selectedIndex, section: 0), at: .centeredHorizontally, animated: false)
+        //        photoDetailCollectionView.scrollToItem(at: IndexPath(item: photoDetailVM.selectedIndex, section: 0), at: .centeredHorizontally, animated: false)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        photoDetailCollectionView.scrollToItem(at: IndexPath(item: photoDetailVM.selectedIndex, section: 0), at: .centeredHorizontally, animated: false)
+//        photoDetailCollectionView.scrollToItem(at: IndexPath(item: photoDetailVM.selectedIndex, section: 0), at: .centeredHorizontally, animated: false)
+
+        let rect = self.photoDetailCollectionView.layoutAttributesForItem(at:IndexPath(row: photoDetailVM.selectedIndex, section: 0))?.frame
+        self.photoDetailCollectionView.scrollRectToVisible(rect!, animated: true)
     }
 
-        private func getLayout() -> UICollectionViewLayout {
-            let width: CGFloat = (photoDetailCollectionView.frame.size.width)
-            let height: CGFloat = (photoDetailCollectionView.frame.size.height)
-            let layout = UICollectionViewFlowLayout()
-            layout.sectionInset = UIEdgeInsets(top: 0,
-                                               left: 0,
-                                               bottom: 0,
-                                               right: 0)
-            layout.scrollDirection = .horizontal
-            layout.minimumInteritemSpacing = 0
-            layout.minimumLineSpacing = 0
-            layout.itemSize = CGSize(width: width, height: height)
-            return layout
-        }
+    private func getLayout() -> UICollectionViewLayout {
+        let width: CGFloat = (photoDetailCollectionView.frame.size.width)
+        let height: CGFloat = (photoDetailCollectionView.frame.size.height)
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0,
+                                           left: 0,
+                                           bottom: 0,
+                                           right: 0)
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        layout.itemSize = CGSize(width: width, height: height)
+        return layout
+    }
 }
 
 extension PhotoDetailViewController: UICollectionViewDelegate { }
@@ -57,6 +60,7 @@ extension PhotoDetailViewController: UICollectionViewDataSource {
         let photo = photoDetailVM.photos[indexPath.row]
         cell.photoImage.setImage(string: photo.url)
         cell.photoImage.enableZoom()
+        cell.photoImage.resetZoom()
         titleLabel.text = photo.title
         return cell
     }
