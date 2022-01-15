@@ -27,6 +27,10 @@ class UserDetailViewController: UIViewController {
         let layout = albumCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
         layout?.sectionHeadersPinToVisibleBounds = true
 
+        usernameLabel.text = userDetailVM.user?.username
+        emailLabel.text = userDetailVM.user?.email
+        addressLabel.text = userDetailVM.user?.address.street
+        companyLabel.text = userDetailVM.user?.company.name
     }
 }
 
@@ -74,11 +78,15 @@ extension UserDetailViewController: UICollectionViewDelegate {
 
 extension UserDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width: CGFloat = (collectionView.frame.size.width / 5) - 10
+        let width: CGFloat = (collectionView.frame.size.width / 3) - 1
         return CGSize(width: width, height: width)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 8
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+       return 1
     }
 }

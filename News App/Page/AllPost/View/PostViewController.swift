@@ -26,6 +26,7 @@ final class PostViewController: UIViewController {
         postVM.getPosts(completion: { [weak self] statusCode, errorMap in
             guard let self = self else { return }
             if statusCode == 200 {
+                print("post done")
                 self.isPostDone = true
                 if self.isUserDone {
                     self.postVM.getSetupPostView()
@@ -39,6 +40,7 @@ final class PostViewController: UIViewController {
         postVM.getUserData(completion: { [weak self] statusCode, errorMap in
             guard let self = self else { return }
             if statusCode == 200 {
+                print("User done")
                 self.isUserDone = true
                 if self.isPostDone {
                     self.postVM.getSetupPostView()
@@ -53,6 +55,7 @@ final class PostViewController: UIViewController {
             guard let self = self else { return }
             if statusCode == 200 {
                 // do nothing
+                print("Comment done")
             } else {
                 showMessage(vc: self, text: errorMap?.message)
             }
@@ -61,6 +64,7 @@ final class PostViewController: UIViewController {
         postVM.getAlbumData(completion: { [weak self] statusCode, errorMap in
             guard let self = self else { return }
             if statusCode == 200 {
+                print("Album done")
                 // do nothing
             } else {
                 showMessage(vc: self, text: errorMap?.message)
@@ -70,6 +74,7 @@ final class PostViewController: UIViewController {
         postVM.getPhotoData(completion: { [weak self] statusCode, errorMap in
             guard let self = self else { return }
             if statusCode == 200 {
+                print("Photo done")
                 // do nothing
             } else {
                 showMessage(vc: self, text: errorMap?.message)

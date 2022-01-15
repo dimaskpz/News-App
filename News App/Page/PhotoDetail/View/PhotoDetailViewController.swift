@@ -62,8 +62,12 @@ extension PhotoDetailViewController: UICollectionViewDataSource {
         cell.photoImage.setImage(string: photo.url)
         cell.photoImage.enableZoom()
         cell.photoImage.resetZoom()
-        titleLabel.text = photo.title
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let photo = photoDetailVM.photos[indexPath.row]
+        titleLabel.text = "(\(indexPath.row + 1)/\(photoDetailVM.photos.count))\n\(photo.title)"
     }
 }
 
