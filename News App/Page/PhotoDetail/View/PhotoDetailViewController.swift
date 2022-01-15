@@ -21,15 +21,16 @@ class PhotoDetailViewController: UIViewController {
         photoDetailCollectionView.register(UINib(nibName: "PhotoDetailCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PhotoDetailCollectionViewCell")
         photoDetailCollectionView.collectionViewLayout = getLayout()
         photoDetailCollectionView.isPagingEnabled = true
-        //        photoDetailCollectionView.scrollToItem(at: IndexPath(item: photoDetailVM.selectedIndex, section: 0), at: .centeredHorizontally, animated: false)
+        photoDetailCollectionView.isHidden = true
+        titleLabel.isHidden = true
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-//        photoDetailCollectionView.scrollToItem(at: IndexPath(item: photoDetailVM.selectedIndex, section: 0), at: .centeredHorizontally, animated: false)
-
         let rect = self.photoDetailCollectionView.layoutAttributesForItem(at:IndexPath(row: photoDetailVM.selectedIndex, section: 0))?.frame
-        self.photoDetailCollectionView.scrollRectToVisible(rect!, animated: true)
+        self.photoDetailCollectionView.scrollRectToVisible(rect!, animated: false)
+        photoDetailCollectionView.isHidden = false
+        titleLabel.isHidden = false
     }
 
     private func getLayout() -> UICollectionViewLayout {
