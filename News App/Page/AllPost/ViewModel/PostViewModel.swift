@@ -110,6 +110,25 @@ extension PostViewModel {
     }
 }
 
+extension PostViewModel {
+    func getAlbumSelected(userId: Int) -> [AlbumElement] {
+        return albums.filter({ $0.userID == userId })
+    }
+
+    func getPhotoSelected(albumData: [AlbumElement]) -> [PhotoElement] {
+        var photoData: [PhotoElement] = []
+        for album in albumData {
+            let tempData: [PhotoElement] = photos.filter({ $0.albumID == album.id })
+            photoData.append(contentsOf: tempData)
+        }
+        return photoData
+    }
+
+    func getUserSelected(userId: Int) -> UserElement? {
+        return users.first(where: { $0.id == userId })
+    }
+}
+
 struct PostDisplay {
     let userId: Int
     let postId: Int

@@ -101,7 +101,20 @@ extension PostViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell")
                 as? PostTableViewCell else { return UITableViewCell() }
-        cell.setData(post: postVM.postDisplay[indexPath.row])
+        let post = postVM.postDisplay[indexPath.row]
+        cell.setData(post: post)
+        cell.callbackUsername = { [weak self] in
+            guard let self = self else { return }
+            if let userData = self.postVM.getUserSelected(userId: post.userId) {
+                let userVC = UserDetailViewController()
+                let albumData = self.postVM.getAlbumSelected(userId: userData.id)
+                userVC.userDetailVM.albums = albumData
+                userVC.userDetailVM.user = userData
+                userVC.userDetailVM.photos = self.postVM.getPhotoSelected(albumData: albumData)
+                self.navigationItem.backButtonTitle = "User Detail"
+                self.navigationController?.pushViewController(userVC, animated: true)
+            }
+        }
         return cell
     }
 }

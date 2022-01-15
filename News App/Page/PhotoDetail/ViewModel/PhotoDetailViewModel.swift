@@ -8,5 +8,6 @@
 import Foundation
 
 class PhotoDetailViewModel {
+    var selectedIndex: Int = 0
     var photos: [PhotoElement] = []
 }

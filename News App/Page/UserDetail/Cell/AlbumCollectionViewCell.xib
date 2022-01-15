@@ -21,24 +21,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="131" height="120"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1vy-H4-6ct">
-                                <rect key="frame" x="0.0" y="0.0" width="131" height="79"/>
+                                <rect key="frame" x="0.0" y="0.0" width="131" height="120"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQK-Zl-wIk">
-                                <rect key="frame" x="10" y="89" width="111" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="1vy-H4-6ct" firstAttribute="top" secondItem="6sN-hY-Mhg" secondAttribute="top" id="Cig-uo-Rn4"/>
-                            <constraint firstItem="KQK-Zl-wIk" firstAttribute="top" secondItem="1vy-H4-6ct" secondAttribute="bottom" constant="10" id="GxA-Z6-CUI"/>
-                            <constraint firstItem="KQK-Zl-wIk" firstAttribute="leading" secondItem="6sN-hY-Mhg" secondAttribute="leading" constant="10" id="OLc-Bl-m5z"/>
+                            <constraint firstAttribute="bottom" secondItem="1vy-H4-6ct" secondAttribute="bottom" id="ffm-er-aOe"/>
                             <constraint firstAttribute="trailing" secondItem="1vy-H4-6ct" secondAttribute="trailing" id="ssa-o0-PLX"/>
-                            <constraint firstAttribute="bottom" secondItem="KQK-Zl-wIk" secondAttribute="bottom" constant="10" id="uqE-Jm-Vxd"/>
                             <constraint firstItem="1vy-H4-6ct" firstAttribute="leading" secondItem="6sN-hY-Mhg" secondAttribute="leading" id="x9B-cp-adJ"/>
-                            <constraint firstAttribute="trailing" secondItem="KQK-Zl-wIk" secondAttribute="trailing" constant="10" id="z1f-zA-dWG"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -53,7 +44,6 @@
             <size key="customSize" width="131" height="120"/>
             <connections>
                 <outlet property="albumImage" destination="1vy-H4-6ct" id="SpI-Yq-sQB"/>
-                <outlet property="albumLabel" destination="KQK-Zl-wIk" id="DGZ-zr-eyO"/>
             </connections>
             <point key="canvasLocation" x="190.57971014492756" y="109.82142857142857"/>
         </collectionViewCell>
