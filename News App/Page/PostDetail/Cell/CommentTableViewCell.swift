@@ -9,12 +9,21 @@ import UIKit
 
 class CommentTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var commentLabel: UILabel!
+
+    var callbackUsernameTapped: (() -> Void)?
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(usernameTapped))
+        usernameLabel.addGestureRecognizer(tap)
+        usernameLabel.isUserInteractionEnabled = true
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
+    @objc private
+      func usernameTapped() {
+          callbackUsernameTapped?()
+      }
+
 }

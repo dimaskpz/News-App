@@ -21,25 +21,25 @@
                         <rect key="frame" x="16" y="16" width="302" height="131"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="usernamefdafsdfa dsf" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrT-oP-g22">
-                                <rect key="frame" x="0.0" y="42" width="167" height="89"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="- company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmE-Ug-FhX">
-                                <rect key="frame" x="167" y="42" width="135" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeY-2s-CIM">
-                                <rect key="frame" x="0.0" y="0.0" width="302" height="21"/>
+                                <rect key="frame" x="0.0" y="41" width="180" height="90"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="body" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVj-cr-kZq">
-                                <rect key="frame" x="0.0" y="21" width="302" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="- company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmE-Ug-FhX">
+                                <rect key="frame" x="180" y="75.5" width="122" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeY-2s-CIM">
+                                <rect key="frame" x="0.0" y="0.0" width="302" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="body" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVj-cr-kZq">
+                                <rect key="frame" x="0.0" y="20.5" width="302" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -51,12 +51,12 @@
                             <constraint firstItem="GVj-cr-kZq" firstAttribute="top" secondItem="BeY-2s-CIM" secondAttribute="bottom" id="ABw-zC-ASY"/>
                             <constraint firstItem="BeY-2s-CIM" firstAttribute="top" secondItem="cpg-qd-868" secondAttribute="top" id="C6C-8H-HGN"/>
                             <constraint firstAttribute="trailing" secondItem="BeY-2s-CIM" secondAttribute="trailing" id="Hi2-0O-vYn"/>
+                            <constraint firstItem="cmE-Ug-FhX" firstAttribute="centerY" secondItem="wrT-oP-g22" secondAttribute="centerY" id="Le9-Up-ghb"/>
                             <constraint firstItem="BeY-2s-CIM" firstAttribute="leading" secondItem="cpg-qd-868" secondAttribute="leading" id="X2x-26-PDA"/>
                             <constraint firstItem="cmE-Ug-FhX" firstAttribute="leading" secondItem="wrT-oP-g22" secondAttribute="trailing" id="ZNQ-Og-njo"/>
                             <constraint firstItem="GVj-cr-kZq" firstAttribute="leading" secondItem="cpg-qd-868" secondAttribute="leading" id="Zah-SJ-HrG"/>
                             <constraint firstItem="wrT-oP-g22" firstAttribute="leading" secondItem="cpg-qd-868" secondAttribute="leading" id="jDP-nl-9ZQ"/>
                             <constraint firstAttribute="trailing" secondItem="cmE-Ug-FhX" secondAttribute="trailing" id="lMs-j6-5Ok"/>
-                            <constraint firstItem="cmE-Ug-FhX" firstAttribute="top" secondItem="GVj-cr-kZq" secondAttribute="bottom" id="lSL-UE-yOI"/>
                             <constraint firstAttribute="trailing" secondItem="GVj-cr-kZq" secondAttribute="trailing" id="nqF-Mo-bwf"/>
                             <constraint firstAttribute="bottom" secondItem="wrT-oP-g22" secondAttribute="bottom" id="vON-Bj-yAH"/>
                         </constraints>

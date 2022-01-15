@@ -104,6 +104,12 @@ class PostViewModel {
 
 }
 
+extension PostViewModel {
+    func getCommentSelected(idPost: Int) -> [CommentElement] {
+        return self.comments.filter({ $0.postID == idPost })
+    }
+}
+
 struct PostDisplay {
     let userId: Int
     let postId: Int

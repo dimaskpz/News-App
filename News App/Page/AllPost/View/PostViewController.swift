@@ -48,15 +48,46 @@ final class PostViewController: UIViewController {
                 showMessage(vc: self, text: errorMap?.message)
             }
         })
+
+        vm.getCommentData(completion: { [weak self] statusCode, errorMap in
+            guard let self = self else { return }
+            if statusCode == 200 {
+                // do nothing
+            } else {
+                showMessage(vc: self, text: errorMap?.message)
+            }
+        })
+
+        vm.getAlbumData(completion: { [weak self] statusCode, errorMap in
+            guard let self = self else { return }
+            if statusCode == 200 {
+                // do nothing
+            } else {
+                showMessage(vc: self, text: errorMap?.message)
+            }
+        })
+
+        vm.getPhotoData(completion: { [weak self] statusCode, errorMap in
+            guard let self = self else { return }
+            if statusCode == 200 {
+                // do nothing
+            } else {
+                showMessage(vc: self, text: errorMap?.message)
+            }
+        })
     }
 }
 
 extension PostViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let cardVC = PokemonDetailViewController()
-//        cardVC.setCard(data: pokemon)
-//        self.navigationItem.backButtonTitle = pokemon.name
-//        self.navigationController?.pushViewController(cardVC, animated: true)
+        let selectedPost = self.vm.postDisplay[indexPath.row]
+        let postDetailVC = PostDetailViewController()
+        postDetailVC.vm.postDisplay = selectedPost
+        postDetailVC.vm.comments = self.vm.getCommentSelected(idPost: selectedPost.postId)
+        postDetailVC.vm.users = self.vm.users
+        postDetailVC.vm.photos = self.vm.photos
+        postDetailVC.vm.albums = self.vm.albums
+        self.navigationController?.pushViewController(postDetailVC, animated: true)
     }
 }
 
