@@ -47,6 +47,7 @@ extension PostDetailViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell")
                     as? PostTableViewCell else { return UITableViewCell() }
             cell.setData(post: post)
+//            cell.lineSeparator.backgroundColor = UIColor.
             cell.callbackUsername = { [weak self] in
                 guard let self = self else { return }
                 if let userData = self.postDetailVM.getUserSelected(userId: post.userId) {

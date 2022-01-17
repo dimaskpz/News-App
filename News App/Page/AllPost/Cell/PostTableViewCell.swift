@@ -14,7 +14,8 @@ final class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var companyLabel: UILabel!
-
+    @IBOutlet weak var lineSeparator: UILabel!
+    
     var callbackUsername: (() -> Void)?
 
     override func awakeFromNib() {
@@ -28,6 +29,8 @@ final class PostTableViewCell: UITableViewCell {
         cardView.layer.cornerRadius = 10
         cardView.clipsToBounds      = true
         cardView.backgroundColor = UIColor.white
+
+        lineSeparator.backgroundColor = .clear
         
         selectionStyle = .none
         let tap = UITapGestureRecognizer(target: self, action: #selector(usernameTapped))

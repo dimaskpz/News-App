@@ -18,19 +18,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tF0-kb-WA9">
-                        <rect key="frame" x="16" y="8" width="302" height="147"/>
+                        <rect key="frame" x="16" y="8" width="302" height="146"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpg-qd-868">
-                                <rect key="frame" x="12" y="12" width="278" height="123"/>
+                                <rect key="frame" x="12" y="12" width="278" height="122"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="usernamefdafsdfa dsf" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrT-oP-g22">
-                                        <rect key="frame" x="0.0" y="57" width="180" height="66"/>
+                                        <rect key="frame" x="0.0" y="57" width="180" height="65"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" systemColor="systemBlueColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="- company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmE-Ug-FhX">
-                                        <rect key="frame" x="180" y="79.5" width="98" height="21"/>
+                                        <rect key="frame" x="180" y="79" width="98" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemGrayColor"/>
                                         <nil key="highlightedColor"/>
@@ -73,24 +73,24 @@
                             <constraint firstAttribute="trailing" secondItem="cpg-qd-868" secondAttribute="trailing" constant="12" id="xqp-bN-jUD"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pt-mQ-99O">
-                        <rect key="frame" x="0.0" y="163" width="334" height="0.0"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pt-mQ-99O">
+                        <rect key="frame" x="28" y="162" width="278" height="1"/>
+                        <color key="backgroundColor" systemColor="systemGrayColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" id="Dme-bp-JAB"/>
+                            <constraint firstAttribute="height" constant="1" id="Dme-bp-JAB"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" systemColor="systemGrayColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="5pt-mQ-99O" secondAttribute="trailing" id="4JM-zL-Oh5"/>
                     <constraint firstItem="tF0-kb-WA9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="9PP-FJ-LWA"/>
                     <constraint firstItem="5pt-mQ-99O" firstAttribute="top" secondItem="tF0-kb-WA9" secondAttribute="bottom" constant="8" id="Ero-g1-Bzu"/>
                     <constraint firstItem="tF0-kb-WA9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="FWi-zX-p4p"/>
-                    <constraint firstItem="5pt-mQ-99O" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="SuH-9F-1rv"/>
                     <constraint firstAttribute="bottom" secondItem="5pt-mQ-99O" secondAttribute="bottom" id="dUH-Sv-WDx"/>
+                    <constraint firstItem="5pt-mQ-99O" firstAttribute="trailing" secondItem="cpg-qd-868" secondAttribute="trailing" id="jh1-Xd-8r3"/>
+                    <constraint firstItem="5pt-mQ-99O" firstAttribute="leading" secondItem="cpg-qd-868" secondAttribute="leading" id="lww-ZI-2hR"/>
                     <constraint firstAttribute="trailing" secondItem="tF0-kb-WA9" secondAttribute="trailing" constant="16" id="r3S-FU-MMP"/>
                 </constraints>
             </tableViewCellContentView>
@@ -99,6 +99,7 @@
                 <outlet property="bodyLabel" destination="GVj-cr-kZq" id="Nvh-Fr-xxO"/>
                 <outlet property="cardView" destination="tF0-kb-WA9" id="UOS-Ja-SW1"/>
                 <outlet property="companyLabel" destination="cmE-Ug-FhX" id="qw9-Ai-usy"/>
+                <outlet property="lineSeparator" destination="5pt-mQ-99O" id="6sJ-iW-c1I"/>
                 <outlet property="titleLabel" destination="BeY-2s-CIM" id="YgL-nn-frp"/>
                 <outlet property="usernameLabel" destination="wrT-oP-g22" id="SSi-c1-BOd"/>
             </connections>
