@@ -23,7 +23,7 @@ final class PostTableViewCell: UITableViewCell {
 //        cardView.tintColor = .red
 //        cardView.backgroundColor = .blue
         cardView.layer.borderWidth = 1.0
-        cardView.layer.borderColor = UIColor.lineColor.cgColor
+        cardView.layer.borderColor = UIColor.gray.cgColor
 
         cardView.layer.cornerRadius = 10
         cardView.clipsToBounds      = true
