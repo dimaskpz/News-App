@@ -9,6 +9,7 @@ import UIKit
 
 final class PostTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -18,6 +19,16 @@ final class PostTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        cardView.setRoundedCorner(8)
+//        cardView.tintColor = .red
+//        cardView.backgroundColor = .blue
+        cardView.layer.borderWidth = 1.0
+        cardView.layer.borderColor = UIColor.lineColor.cgColor
+
+        cardView.layer.cornerRadius = 10
+        cardView.clipsToBounds      = true
+        cardView.backgroundColor = UIColor.white
+        
         selectionStyle = .none
         let tap = UITapGestureRecognizer(target: self, action: #selector(usernameTapped))
         usernameLabel.addGestureRecognizer(tap)

@@ -50,6 +50,8 @@
 		6AAAF0082790A414001CA8F5 /* PostDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAAF0072790A414001CA8F5 /* PostDetailViewModel.swift */; };
 		6AAAF00B2790A440001CA8F5 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAAF0092790A440001CA8F5 /* CommentTableViewCell.swift */; };
 		6AAAF00C2790A440001CA8F5 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AAAF00A2790A440001CA8F5 /* CommentTableViewCell.xib */; };
+		6ADBE2DD2795E01100055378 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADBE2DC2795E01100055378 /* UIViewExtension.swift */; };
+		6ADBE2DF2795E09600055378 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADBE2DE2795E09600055378 /* UIColorExtension.swift */; };
 		6B4D37948456EF11D393C31C /* Pods_News_App_News_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BA4C447E6E2D59DDA298D1 /* Pods_News_App_News_AppUITests.framework */; };
 		EDF231223FEC813D65FA4827 /* Pods_News_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3D84B707FE626CBDAC6BC0 /* Pods_News_AppTests.framework */; };
 		F722BA6C3D0EE2B9E970D1A4 /* Pods_News_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2017E9DB9678231F8375D3F8 /* Pods_News_App.framework */; };
@@ -124,6 +126,8 @@
 		6AAAF0072790A414001CA8F5 /* PostDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModel.swift; sourceTree = "<group>"; };
 		6AAAF0092790A440001CA8F5 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		6AAAF00A2790A440001CA8F5 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
+		6ADBE2DC2795E01100055378 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		6ADBE2DE2795E09600055378 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		8E8771507E858680435A2153 /* Pods-News App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News App.release.xcconfig"; path = "Target Support Files/Pods-News App/Pods-News App.release.xcconfig"; sourceTree = "<group>"; };
 		BA3D84B707FE626CBDAC6BC0 /* Pods_News_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C18154C6EB5E5C73845C21EE /* Pods-News App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News App.debug.xcconfig"; path = "Target Support Files/Pods-News App/Pods-News App.debug.xcconfig"; sourceTree = "<group>"; };
@@ -338,6 +342,8 @@
 			isa = PBXGroup;
 			children = (
 				6A3765FA279281B500DA5419 /* UIImageExtension.swift */,
+				6ADBE2DC2795E01100055378 /* UIViewExtension.swift */,
+				6ADBE2DE2795E09600055378 /* UIColorExtension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -684,6 +690,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ADBE2DD2795E01100055378 /* UIViewExtension.swift in Sources */,
 				6AAAEFF627907C6F001CA8F5 /* UserService.swift in Sources */,
 				6A1B166327906FAF004304EB /* PostViewController.swift in Sources */,
 				6A1B165C27906F0D004304EB /* PostViewModel.swift in Sources */,
@@ -700,6 +707,7 @@
 				6AAAEFFE27909EE9001CA8F5 /* Global.swift in Sources */,
 				6A1B164E27906CF1004304EB /* NetworkingClient.swift in Sources */,
 				6A3765F72792765800DA5419 /* HeaderAlbumCollectionReusableView.swift in Sources */,
+				6ADBE2DF2795E09600055378 /* UIColorExtension.swift in Sources */,
 				6AAAEFF227907B9B001CA8F5 /* PhotoModel.swift in Sources */,
 				6A1B161B27906AFC004304EB /* AppDelegate.swift in Sources */,
 				6A3766082792855400DA5419 /* PhotoDetailCollectionViewCell.swift in Sources */,

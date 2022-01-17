@@ -14,3 +14,9 @@ func showMessage(vc: UIViewController, text: String?) {
     alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
     vc.present(alert, animated: true, completion: nil)
 }
+
+extension UIColor {
+    static let lineColor = UIColor(hex: "#909090")
+    static let usernameColor = UIColor(hex: "#606060")
+//    static let textColor = UIColor("#FFFFFF")
+}
